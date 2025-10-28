@@ -33,9 +33,9 @@ services:
     environment:
       - NODE_ENV=${APP_ENV}
     labels:
-      - "traefik.enable=true"
+      # - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`localhost`) && PathPrefix(`/api`)"
-      - "traefik.http.routers.backend.entrypoints=web"
+      # - "traefik.http.routers.backend.entrypoints=web"
       - "traefik.http.services.backend.loadbalancer.server.port=5000"
 networks:
   test_hh_net_124422381:

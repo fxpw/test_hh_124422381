@@ -1,13 +1,14 @@
 
 services:
   traefik:
-    image: traefik:v2.10
+    image: traefik:latest
     command:
-      - "--api.dashboard=true"
+      - "--api.insecure=true"
       - "--providers.docker=true"
       - "--entryPoints.web.address=:80"
     ports:
-      - "8080:8080"       # панель управления
+      # - "80:80"
+      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:

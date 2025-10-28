@@ -8,11 +8,12 @@ export default defineConfig({
 		tailwindcss(),
 	],
 	server: {
-		//host: '0.0.0.0',
-		hmr: {
-			host: 'localhost',
-			// port: 5173
-		},
+		host: '0.0.0.0',
+		port: 80,
+		// hmr: {
+		// 	host: 'localhost',
+		// 	port: 5173
+		// },
 	},
 	build: {
 		// buildDirectory: 'my_build_directory',
