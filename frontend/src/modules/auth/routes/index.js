@@ -1,12 +1,12 @@
 
 
 const routes = [
-	{
-		path: '/',
-		// redirect: '/login',
-		name: 'Home',
-		component: () => import('../pages/AuthPage.vue'),
-	},
+	// {
+	// 	path: '/',
+	// 	// redirect: '/login',
+	// 	name: 'Home',
+	// 	component: () => import('../pages/AuthPage.vue'),
+	// },
 	{
 		path: '/login',
 		name: 'Login',

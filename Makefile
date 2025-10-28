@@ -19,6 +19,8 @@ start:create_network start_all
 stop_all:
 	@echo "Остановка всех микросервисов..."
 	@docker compose -f backend/docker-compose.yml down
+	@docker compose -f traefik/docker-compose.yml down
+	@docker compose -f frontend/docker-compose.yml down
 
 down:stop_all
 stop:stop_all

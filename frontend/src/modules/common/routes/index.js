@@ -1,5 +1,11 @@
 const routes = [
 	{
+		path: '/',
+		// redirect: '/login',
+		name: 'Home',
+		component: () => import('../pages/Home.vue'),
+	},
+	{
 		path: '/terms-of-service',
 		name: 'TermsOfService',
 		component: () => import('../pages/TermsOfService.vue'), // Ленивая загрузка компонента
