@@ -1,9 +1,12 @@
 #!/bin/bash
+
 if [ ! -d node_modules ]; then
 	if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
 fi
 if [ "$NODE_ENV" = 'production' ]; then
-	node ./app.js
+	npm run dev
 else
-	npx nodemon --inspect=0.0.0.0:9229 ./app.js
+	npm run dev
 fi
+
+

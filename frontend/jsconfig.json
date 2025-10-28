@@ -1,0 +1,34 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"$api/*": [
+				"resources/js/api/*"
+			],
+			"$utils/*": [
+				"resources/js/utils/*"
+			],
+			"$middlewares/*": [
+				"resources/js/middlewares/*"
+			],
+			"$js/*": [
+				"src/js/*"
+			],
+			"$assets/*": [
+				"src/assets/*"
+			],
+			"$shared/*": [
+				"src/shared/*"
+			],
+			
+		},
+	},
+	"include": [
+		"resources/js/**/*.js",
+		"resources/sass/**/*.scss",
+		"vite.config.js"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}

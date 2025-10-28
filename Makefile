@@ -10,6 +10,8 @@ create_network:
 start_all:
 	@echo "Запуск всех микросервисов..."
 	@docker compose -f backend/docker-compose.yml up -d
+	@docker compose -f traefik/docker-compose.yml up -d
+	@docker compose -f frontend/docker-compose.yml up -d
 
 
 start:create_network start_all
