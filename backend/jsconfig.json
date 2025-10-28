@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"module": "CommonJS",
+		"baseUrl": ".",
+		"paths": {
+			"$config": [
+				"./config"
+			],
+			"$modules": [
+				"./modules"
+			]
+		}
+	},
+	"include": [
+		"modules/**/*.js",
+		"app.js",
+	],
+	"exclude": [
+		"node_modules"
+	]
+}

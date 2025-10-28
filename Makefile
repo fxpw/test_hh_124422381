@@ -9,11 +9,14 @@ create_network:
 
 start_all:
 	@echo "Запуск всех микросервисов..."
+	@docker compose -f backend/docker-compose.yml up -d
+
 
 start:create_network start_all
 
 stop_all:
 	@echo "Остановка всех микросервисов..."
+	@docker compose -f backend/docker-compose.yml down
 
 down:stop_all
 stop:stop_all
