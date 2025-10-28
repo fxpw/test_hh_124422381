@@ -1,6 +1,6 @@
 <script setup>
 // ! import all
-import { ref, watch, computed, defineEmits } from 'vue';
+import { ref, watch, computed } from 'vue';
 
 // ! define props
 const props = defineProps({

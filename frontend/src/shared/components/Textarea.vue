@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { ref, watch, computed, defineEmits } from 'vue';
+import { ref, watch, computed } from 'vue';
 
 // Определяем свойства компонента
 const props = defineProps({
