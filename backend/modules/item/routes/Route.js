@@ -6,10 +6,10 @@ const controller = require('modules/item/controllers/ItemController.js');
 
 const router = Router();
 
-router.get('/', controller.getItems);
-router.post('/', controller.createItem);
-router.get('/:id', controller.getItemById);
-router.put('/:id', controller.updateItem);
-router.delete('/:id', controller.deleteItem);
+router.get('/', controller.getItems); // Получение с фильтром и пагинацией
+router.post('/batch', controller.addItemsBatch); // батч добавление
+router.get('/selected', controller.getSelected); // Получить выбранные
+router.post('/selected', controller.updateSelected); // Обновить выбранных
+router.post('/selected/sort', controller.updateOrder); // Обновить сортировку
 
 module.exports = router;
