@@ -20,11 +20,12 @@
 			"$shared/*": [
 				"src/shared/*"
 			],
-			
+
 		},
 	},
 	"include": [
 		"resources/js/**/*.js",
+		"src/**/*.js",
 		"resources/sass/**/*.scss",
 		"vite.config.js"
 	],
