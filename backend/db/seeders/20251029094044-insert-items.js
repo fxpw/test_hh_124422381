@@ -1,7 +1,14 @@
-// backend/db/seeders/20251029094044-insert-items.js
 'use strict';
 
-const BATCH_SIZE = 20000; // выбираем размер батча, чтобы не нагружать память
+const BATCH_SIZE = 20000;
+const crypto = require('crypto');
+
+function getRandomString(length) {
+	return crypto.randomBytes(length)
+		.toString('base64')
+		.replace(/[^a-zA-Z0-9]/g, '')
+		.slice(0, length);
+}
 
 module.exports = {
 	async up(queryInterface, Sequelize) {
@@ -11,15 +18,18 @@ module.exports = {
 			const bulkInsertData = [];
 
 			for (let id = batchStart; id <= batchEnd; id++) {
-				bulkInsertData.push({ id });
+				bulkInsertData.push({
+					id,
+					name: getRandomString(10),
+				});
 			}
 
-			await queryInterface.bulkInsert('Items', bulkInsertData);
+			await queryInterface.bulkInsert('items', bulkInsertData);
 			console.log(`Inserted IDs from ${batchStart} to ${batchEnd}`);
 		}
 	},
 
 	async down(queryInterface, Sequelize) {
-		await queryInterface.bulkDelete('Items', null, {});
+		await queryInterface.bulkDelete('items', null, {});
 	},
 };
