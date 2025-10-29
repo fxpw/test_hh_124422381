@@ -2,9 +2,6 @@
 	<header class="header-block">
 		<h1>{{ title }}</h1>
 		<nav class="nav-buttons">
-			<PrimaryButton class="nav-button" v-if="!isAuthenticated" @click="goToLogin">Вход</PrimaryButton>
-			<PrimaryButton class="nav-button" v-if="!isAuthenticated" @click="goToRegister">Регистрация</PrimaryButton>
-			<PrimaryButton class="nav-button" v-if="isAuthenticated" @click="logout">Выход</PrimaryButton>
 		</nav>
 	</header>
 </template>
