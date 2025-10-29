@@ -6,7 +6,7 @@ const itemRoutes = require('./modules/item/routes/Route.js');
 
 const app = express();
 
-app.use(cors({ origin: process.env.CORS_ORIGINS?.split(',') || ['http://app.localhost'] }));
+app.use(cors({ origin: process.env.CORS_ORIGINS?.split(',') || ['https://app.fxpw.site'] }));
 app.use(express.json());
 const logger = (req, res, next) => {
 	console.log(`${req.method} ${req.url}`);

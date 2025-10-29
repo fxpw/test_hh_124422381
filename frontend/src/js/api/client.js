@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-	baseURL: "http://api.localhost/api",
+	baseURL: "https://api.fxpw.site/api",
 	headers: {
 		'Accept': 'application/json',
 		'Content-Type': 'application/json',
