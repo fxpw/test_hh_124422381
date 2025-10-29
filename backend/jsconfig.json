@@ -3,6 +3,9 @@
 		"module": "CommonJS",
 		"baseUrl": ".",
 		"paths": {
+			"$db": [
+				"./db"
+			],
 			"$config": [
 				"./config"
 			],
@@ -12,8 +15,9 @@
 		}
 	},
 	"include": [
-		"modules/**/*.js",
-		"app.js",
+		"db/**/*.js",
+		"src/**/*.js",
+		"src/app.js",
 	],
 	"exclude": [
 		"node_modules"

@@ -25,10 +25,10 @@ rebuild: down build_no_cache up
 current_date := $(shell date +%Y%m%d%H%M%S)
 
 m := $(or $(m), create-migration)
-MIGRATION_NAME = $(m)-$(current_date)
+MIGRATION_NAME = $(m)
 
 s := $(or $(s), create-seeder)
-SEEDER_NAME = $(s)-$(current_date)
+SEEDER_NAME = $(s)
 
 m_make:
 	$(exec_in_container) npx sequelize-cli migration:generate --name $(MIGRATION_NAME)
