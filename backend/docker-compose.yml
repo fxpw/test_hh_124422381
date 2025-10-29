@@ -1,24 +1,24 @@
 
 services:
-  test_hh_126449923_mysql:
-    container_name: test_hh_126449923_mysql
-    restart: always
-    image: 'mysql/mysql-server:8.0'
-    environment:
-          MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
-          MYSQL_ROOT_HOST: '%'
-          MYSQL_DATABASE: '${DB_DATABASE}'
-          MYSQL_USER: '${DB_USERNAME}'
-          MYSQL_PASSWORD: '${DB_PASSWORD}'
-          MYSQL_ALLOW_EMPTY_PASSWORD: 1
-    ports:
-      - '${FORWARD_DB_PORT:-3307}:3306'
-    volumes:
-      - test_hh_126449923_mysql_v:/var/lib/mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
-      retries: 3
-      timeout: 5s
+  # test_hh_126449923_mysql:
+  #   container_name: test_hh_126449923_mysql
+  #   restart: always
+  #   image: 'mysql/mysql-server:8.0'
+  #   environment:
+  #         MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+  #         MYSQL_ROOT_HOST: '%'
+  #         MYSQL_DATABASE: '${DB_DATABASE}'
+  #         MYSQL_USER: '${DB_USERNAME}'
+  #         MYSQL_PASSWORD: '${DB_PASSWORD}'
+  #         MYSQL_ALLOW_EMPTY_PASSWORD: 1
+  #   ports:
+  #     - '${FORWARD_DB_PORT:-3307}:3306'
+  #   volumes:
+  #     - test_hh_126449923_mysql_v:/var/lib/mysql
+  #   healthcheck:
+  #     test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+  #     retries: 3
+  #     timeout: 5s
 
   test_hh_124422381_back:
     container_name: test_hh_124422381_back
@@ -44,6 +44,6 @@ networks:
     external: true
 
 
-volumes:
-  test_hh_126449923_mysql_v:
-    driver: local
+# volumes:
+#   test_hh_126449923_mysql_v:
+#     driver: local
