@@ -6,9 +6,13 @@ const itemRoutes = require('./modules/item/routes/Route.js');
 
 const app = express();
 
-app.use(cors({ origin: process.env.CORS_ORIGINS?.split(',') || ['http://localhost:3000'] }));
+app.use(cors({ origin: process.env.CORS_ORIGINS?.split(',') || ['http://app.localhost'] }));
 app.use(express.json());
-
+const logger = (req, res, next) => {
+	console.log(`${req.method} ${req.url}`);
+	next();
+};
+app.use(logger);
 // подключение маршрутов
 app.use('/api/items', itemRoutes);
 

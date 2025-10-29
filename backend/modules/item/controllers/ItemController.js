@@ -1,4 +1,4 @@
-// controllers/itemController.js
+// backend/modules/item/controllers/ItemController.js
 const { items, selectedItems, sortedSelectedItems, addQueue } = require('modules/item/memoryStorage');
 
 const ITEMS_PER_PAGE = 20;
@@ -27,15 +27,15 @@ module.exports = {
 		if (!Array.isArray(ids)) {
 			return res.status(400).json({ message: 'Invalid input, expected array of ids' });
 		}
-
 		for (const id of ids) {
 			addQueue.add(id);
 		}
-		res.json({ message: 'Идет добавление', count: ids.length });
+		res.json({ message: 'Идёт добавление', count: ids.length });
 	},
 
 	getSelected: (req, res) => {
-		res.json(selectedItems);
+		const base = sortedSelectedItems.length > 0 ? sortedSelectedItems : selectedItems;
+		return res.json(base.map(id => ({ id })));
 	},
 
 	updateSelected: (req, res) => {
@@ -43,18 +43,22 @@ module.exports = {
 		if (!Array.isArray(ids)) {
 			return res.status(400).json({ message: 'Invalid input' });
 		}
-		selectedItems.length = 0; // очистка
+		selectedItems.length = 0;
 		selectedItems.push(...ids);
-		res.json({ message: 'Статус выбранных обновлен' });
+		sortedSelectedItems.length = 0;
+		sortedSelectedItems.push(...ids);
+		res.json({ message: 'Выбранные элементы обновлены', count: ids.length });
 	},
 
 	updateOrder: (req, res) => {
 		const { order } = req.body;
 		if (Array.isArray(order)) {
-			sortedSelectedItems = order;
-			res.json({ message: 'Порядок сохранен' });
+			sortedSelectedItems.length = 0;
+			sortedSelectedItems.push(...order);
+			// console.log('Новый порядок:', order.slice(0, 10), '...');
+			res.json({ message: 'Порядок сохранен', count: sortedSelectedItems.length });
 		} else {
 			res.status(400).json({ message: 'Invalid order' });
 		}
-	}
+	},
 };

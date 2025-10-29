@@ -1,13 +1,10 @@
-// memoryStorage.js
-const MAX_ITEMS = 1000000;
+// backend/modules/item/memoryStorage.js
+const MAX_ITEMS = 1_000_000;
 
-// Массив всех элементов
+// основной массив элементов
 const items = [];
-// Массив выбранных id
 let selectedItems = [];
-// Порядок выбранных элементов (для сортировки)
 let sortedSelectedItems = [];
-// Очередь батчинга добавлений
 const addQueue = new Set();
 
 for (let i = 1; i <= MAX_ITEMS; i++) {
